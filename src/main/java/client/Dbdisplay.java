@@ -11,7 +11,7 @@ public class Dbdisplay extends JPanel{
 
 	
 	Dbdisplay(){
-		setPreferredSize(new Dimension(1360,450));
+		setPreferredSize(new Dimension(1020,338));
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
 		setLayout(layout);

@@ -41,7 +41,7 @@ public class Gui extends JFrame {
     						.addComponent(bottom)));
 		
 		
-		side2.setPreferredSize(new Dimension(200,390));
+		side2.setPreferredSize(new Dimension(150,292));
 		side2.setMaximumSize(getPreferredSize());	
 		side2.setMaximumSize(getPreferredSize());
 		side2.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -52,7 +52,7 @@ public class Gui extends JFrame {
 		bottom.setBackground(Color.WHITE);
 		
 		setLayout(layout);
-		setSize(1600,900);
+		setSize(1200,690);
 		setResizable(false);
 		setBackground(Color.GRAY);
 		

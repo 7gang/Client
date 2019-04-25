@@ -17,7 +17,7 @@ public class Dbtable extends JPanel{
 	Font font = new Font("Helvetica", Font.PLAIN,20);
 
 	Dbtable(){
-		setPreferredSize(new Dimension(1360,390));
+		setPreferredSize(new Dimension(1020,292));
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
 		add(listScroller);
@@ -25,7 +25,7 @@ public class Dbtable extends JPanel{
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setLayoutOrientation(JList.VERTICAL);
 		list.setVisibleRowCount(-1);
-		listScroller.setPreferredSize(new Dimension(1350, 375));
+		listScroller.setPreferredSize(new Dimension(1013, 281));
 		list.setFont(font);
 		setBorder(BorderFactory.createLineBorder(Color.black));
 	}

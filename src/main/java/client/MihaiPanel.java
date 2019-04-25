@@ -38,7 +38,7 @@ public class MihaiPanel extends JPanel {
 			b3.setFont(font);
 			b4.setFont(font);
 
-			setPreferredSize(new Dimension(200,450));
+			setPreferredSize(new Dimension(150,338));
 			setMaximumSize(getPreferredSize());
 			setMinimumSize(getPreferredSize());
 			setVisible(true);
