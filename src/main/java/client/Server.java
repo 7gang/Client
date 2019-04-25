@@ -22,20 +22,20 @@ class Server {
 
     public static List<String> getQuotes() {
         if (System.currentTimeMillis() - timer > 2000) // effectively cache data for two seconds
-            request(new String[] { "get" });
+            request("get");
         return data;
     }
 
     public static Boolean addQuote(String quote) {
-        return request(new String[] {"add", quote});
+        return request("add", quote);
     }
 
     public static Boolean editQuote(String targetQuote, String newQuote) {
-        return request(new String[] { "edit", targetQuote, newQuote });
+        return request("edit", targetQuote, newQuote);
     }
 
     public static Boolean deleteQuote(String quote) {
-        return request(new String[] { "delete", quote });
+        return request("delete", quote);
     }
 
     private static Boolean request(String...parameters) {
