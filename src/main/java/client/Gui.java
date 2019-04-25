@@ -75,6 +75,7 @@ public class Gui extends JFrame {
 			public void actionPerformed (ActionEvent e) 
 			{
 				table.addItem("a quote");
+				
 			}
 		});
 		
@@ -100,6 +101,12 @@ public class Gui extends JFrame {
 			{
 				table.updateItems();
 			}
+		});
+		
+		Dbdisplay.input.addActionListener(new java.awt.event.ActionListener() {
+		  public void actionPerformed(ActionEvent e) {
+		    System.out.println(Dbdisplay.input.getText());
+		  }
 		});
 	}
 }
