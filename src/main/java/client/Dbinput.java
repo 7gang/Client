@@ -3,21 +3,19 @@ package client;
 import javax.swing.*;
 import java.awt.*;
 
-
-public class Dbdisplay extends JPanel{
+public class Dbinput extends JPanel {
 	BorderLayout layout = new BorderLayout();
-	JLabel text = new JLabel("Test");
-	Font font = new Font("Helvetica", Font.BOLD,50);
-
-	Dbdisplay(){
+	static JTextField input = new JTextField(20);
+	
+	Dbinput(){
 		setPreferredSize(new Dimension(1020,338));
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
 		setLayout(layout);
-		text.setHorizontalTextPosition(text.CENTER);
-		text.setHorizontalAlignment(text.CENTER);
-		text.setFont(font);
-		add(text,BorderLayout.CENTER);
+		add(input, BorderLayout.CENTER);
+		input.setSize(400,40);
+		input.setHorizontalAlignment(input.CENTER);
 		setBorder(BorderFactory.createLineBorder(Color.black));
 	}
+
 }

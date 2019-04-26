@@ -8,8 +8,6 @@ import java.awt.*;
 
 public class Dbtable extends JPanel{
 	DefaultListModel<String> listModel = new DefaultListModel<>();
-	String[] s = {"s","b","w","s","b","w","s","b","w","s","b","w","s","b","w","s",
-			"b","w","s","b","w","s","b","w","s","b","w","s","b","w","s","b","w","s","b","w"};
 	JList<String> list = new JList<>(listModel);
 	JScrollPane listScroller = new JScrollPane(list,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	int selection;
