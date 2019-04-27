@@ -67,17 +67,15 @@ public class Gui extends JFrame {
 			public void valueChanged(ListSelectionEvent arg0) {
 				switch(block) {
 				case 0:	System.out.println(table.list.getSelectedIndex());
-						table.r = table.listModel.getElementAt(table.list.getSelectedIndex());
-						System.out.println(table.r);
-						table.selection = table.list.getSelectedIndex();
+						k = table.listModel.getElementAt(table.list.getSelectedIndex());
+						System.out.println(k);
 				break;
 				case 1: break;		
 				}
-				k = table.r;
-				display.text.setText(table.r);
+				display.text.setText(k);
 			}
 		});
-		display.text.setText(table.r);
+		display.text.setText(k);
 		
 		MihaiPanel.b1.addActionListener(new ActionListener() 
 		{

@@ -1,29 +1,28 @@
 package client;
 
 import javax.swing.*;
-
 import java.awt.*;
-
+/**
+ * Class for the container used to show a list of database entries
+ */
 public class Dbtable extends JPanel{
-	DefaultListModel<String> listModel = new DefaultListModel<>();
-	JList<String> list = new JList<>(listModel);
-	JScrollPane listScroller = new JScrollPane(list,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-	int selection;
-	public String r = "";
-	Font font = new Font("Helvetica", Font.PLAIN,20);
+	DefaultListModel<String> listModel = new DefaultListModel<>();//ListModel used to add entries into the Jlist
+	JList<String> list = new JList<>(listModel);//JList component used to show the database to the user
+	JScrollPane listScroller = new JScrollPane(list,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);//JScrollPane component used with the JList to make it Scrollable
+	Font font = new Font("Helvetica", Font.PLAIN,20);//Font used in the list 
 
 	Dbtable(){
-		setPreferredSize(new Dimension(1020,292));
+		setPreferredSize(new Dimension(1020,292));//Setting the size for the container
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
-		add(listScroller);
+		add(listScroller);//Adding the JScrollpane to the container
 		list.setVisible(true);
-		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		list.setLayoutOrientation(JList.VERTICAL);
-		list.setVisibleRowCount(-1);
-		listScroller.setPreferredSize(new Dimension(1013, 281));
-		list.setFont(font);
-		setBorder(BorderFactory.createLineBorder(Color.black));
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//Setting the selection mode of the list so that only one entry in the list can be selected at once
+		list.setLayoutOrientation(JList.VERTICAL);//Setting the layout of the list so that it does no wrap horizontally
+		list.setVisibleRowCount(-1);//Setting the visible row count to be -1 so that all rows are visible at once
+		listScroller.setPreferredSize(new Dimension(1013, 281));//Setting the size of the Scrollpane
+		list.setFont(font);//Setting the font used for the list
+		setBorder(BorderFactory.createLineBorder(Color.black));//Creating a border around the container
 	}
 
 	private void reformList() {
