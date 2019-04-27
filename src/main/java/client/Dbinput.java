@@ -6,7 +6,7 @@ import java.awt.*;
  * Class for the container that gives the user input into the database
  */
 public class Dbinput extends JPanel {
-	BorderLayout layout = new BorderLayout();//Border layout used to center the label component
+	private static BorderLayout layout = new BorderLayout();//Border layout used to center the label component
 	static JTextField input = new JTextField(20);//JTextField component to input text into
 	
 	Dbinput(){

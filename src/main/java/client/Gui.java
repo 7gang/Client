@@ -7,17 +7,19 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *Main GUI class that acts as the frame that other container classes are added to
+ */
 public class Gui extends JFrame {
-	Dbtable table = new Dbtable();
+	Dbtable table = new Dbtable();//
 	Dbdisplay display = new Dbdisplay();
 	Dbinput inputfield = new Dbinput();
-	JPanel side = new MihaiPanel();
+	JPanel side = new MihaiPanel();//JPanels used to set up the layout 
 	JPanel side2 = new JPanel();
 	JPanel top = new JPanel();
 	JPanel bottom = table;
-	GroupLayout layout = new GroupLayout(getContentPane());
-	CardLayout cl = new CardLayout();
+	GroupLayout layout = new GroupLayout(getContentPane());//GroupLayout used on the frame to layout the various containers
+	CardLayout cl = new CardLayout();//CardLayout used the top JPanel to switch between the Dbdisplay and Dbinput containers
 	String q;
 	String k;
 	int selector = 0;
@@ -25,13 +27,14 @@ public class Gui extends JFrame {
 	
 	Gui(){
 		block = 0;
-		top.setLayout(cl);
-		top.add(display);
+		top.setLayout(cl);//Setting the layout of the top JPanel 
+		top.add(display);//Adding the containers to the top JPanel
 		top.add(inputfield);
-		cl.first(top);
-		layout.setAutoCreateGaps(true);
+		cl.first(top);//Setting the first card in the card layout to be shown on startup
+		layout.setAutoCreateGaps(true);//Setting the group layout to automatically create gaps between JPanels 
 		layout.setAutoCreateContainerGaps(true);
 		
+		//Setting up the groups for the group layout
 		layout.setHorizontalGroup(
     			layout.createSequentialGroup()
     			.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -49,34 +52,32 @@ public class Gui extends JFrame {
     				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
     						.addComponent(side2)
     						.addComponent(bottom)));
-    	
+    	//Setting the background color of the JPanels
 		side.setBackground(Color.WHITE);
 		side2.setBackground(Color.WHITE);
 		top.setBackground(Color.WHITE);
 		bottom.setBackground(Color.WHITE);
 		
-		setLayout(layout);
-		setSize(1200,690);
-		setResizable(false);
-		setBackground(Color.GRAY);
+		setLayout(layout);//Setting the layout for the frame
+		setSize(1200,690);//Setting the size of the frame
+		setResizable(false);//Setting the frame to not be resizable
+		setBackground(Color.GRAY);//Setting the frame background color
+		setDefaultCloseOperation(EXIT_ON_CLOSE);//Setting the default close operation so the program shuts down when the window is closed
+		setVisible(true);//Setting the frame to be visible
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);
-		table.list.addListSelectionListener(new ListSelectionListener() {
+		table.list.addListSelectionListener(new ListSelectionListener() {//Adding a selection listener to the Dbtable list
 			@Override
-			public void valueChanged(ListSelectionEvent arg0) {
-				switch(block) {
-				case 0:	System.out.println(table.list.getSelectedIndex());
-						k = table.listModel.getElementAt(table.list.getSelectedIndex());
-						System.out.println(k);
+			public void valueChanged(ListSelectionEvent arg0) {//Method for the listener that is called whenever the selection in the list is changed
+				switch(block) {//Switch case that is used stop code from being called when the list contents are changing 
+				case 0:	k = table.listModel.getElementAt(table.list.getSelectedIndex());//Retrieving text entry from the list
 				break;
-				case 1: break;		
+				case 1: break;//doing noting to protect the code from errors
 				}
-				display.text.setText(k);
+				display.text.setText(k);//Setting the text in the Dbdisplay JLabel
 			}
 		});
 		display.text.setText(k);
-		
+		//Action listeners for buttons in the JPanel MihaiPanel
 		MihaiPanel.b1.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed (ActionEvent e) 
@@ -99,7 +100,7 @@ public class Gui extends JFrame {
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
-				block = 1;
+				block = 1;//Changing the int block to protect the code from errors when changes are happening to the list
 				table.removeItem(k);
 				block = 0;
 			}
@@ -109,17 +110,17 @@ public class Gui extends JFrame {
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
-				block = 1;
+				block = 1;//Changing the int block to protect the code from errors when changes are happening to the list
 				table.updateItems();
 				block = 0;
 			}
 		});
 		
-		Dbinput.input.addActionListener(new java.awt.event.ActionListener() {
+		Dbinput.input.addActionListener(new java.awt.event.ActionListener() {//ActionListener for the Dbinput JTextField
 		  public void actionPerformed(ActionEvent e) {
-			  block = 1;
+			  block = 1;//Changing the int block to protect the code from errors when changes are happening to the list
 			  q =Dbinput.input.getText();
-			  switch(selector) {
+			  switch(selector) {//Switch to determine what method the text input should be applied to
 				  case 1: table.addItem(q);		
 				  break;
 				  case 2: table.editItem(k,q);	
@@ -130,11 +131,10 @@ public class Gui extends JFrame {
 		  }
 		});
 	}
-	
-	void displayInput() {
-		cl.last(top);
-	}
-	void displayText(){
+	void displayText(){//method to change the top JPanel to be the first card
 		cl.first(top);
 	}
+	void displayInput() {//method to change the top JPanel to be the last card
+		cl.last(top);
+	}	
 }

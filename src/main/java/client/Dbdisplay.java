@@ -7,9 +7,9 @@ import java.awt.*;
  * Class for the container that displays selected entries from the list in the class Dbtable
  */
 public class Dbdisplay extends JPanel{
-	BorderLayout layout = new BorderLayout();//Border layout used to center the label component
+	private static BorderLayout layout = new BorderLayout();//Border layout used to center the label component
 	JLabel text = new JLabel("Test");//JLabel text component 
-	Font font = new Font("Helvetica", Font.BOLD,50);//Font used for the JLabel
+	private static Font font = new Font("Helvetica", Font.BOLD,50);//Font used for the JLabel
 
 	Dbdisplay(){
 		setPreferredSize(new Dimension(1020,338));//Setting the size of the container

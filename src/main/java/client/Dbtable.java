@@ -6,10 +6,10 @@ import java.awt.*;
  * Class for the container used to show a list of database entries
  */
 public class Dbtable extends JPanel{
-	DefaultListModel<String> listModel = new DefaultListModel<>();//ListModel used to add entries into the Jlist
-	JList<String> list = new JList<>(listModel);//JList component used to show the database to the user
-	JScrollPane listScroller = new JScrollPane(list,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);//JScrollPane component used with the JList to make it Scrollable
-	Font font = new Font("Helvetica", Font.PLAIN,20);//Font used in the list 
+	static DefaultListModel<String> listModel = new DefaultListModel<>();//ListModel used to add entries into the Jlist
+	static JList<String> list = new JList<>(listModel);//JList component used to show the database to the user
+	static JScrollPane listScroller = new JScrollPane(list,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);//JScrollPane component used with the JList to make it Scrollable
+	private static Font font = new Font("Helvetica", Font.PLAIN,20);//Font used in the list 
 
 	Dbtable(){
 		setPreferredSize(new Dimension(1020,292));//Setting the size for the container
