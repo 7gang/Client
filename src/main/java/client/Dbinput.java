@@ -14,7 +14,7 @@ public class Dbinput extends JPanel {
 		setLayout(layout);
 		add(input, BorderLayout.CENTER);
 		input.setSize(400,40);
-		input.setHorizontalAlignment(input.CENTER);
+		input.setHorizontalAlignment(JTextField.CENTER);
 		setBorder(BorderFactory.createLineBorder(Color.black));
 	}
 

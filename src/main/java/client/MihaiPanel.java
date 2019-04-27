@@ -1,6 +1,5 @@
 package client;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class MihaiPanel extends JPanel {

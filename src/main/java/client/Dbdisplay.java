@@ -14,8 +14,8 @@ public class Dbdisplay extends JPanel{
 		setMaximumSize(getPreferredSize());
 		setMinimumSize(getPreferredSize());
 		setLayout(layout);
-		text.setHorizontalTextPosition(text.CENTER);
-		text.setHorizontalAlignment(text.CENTER);
+		text.setHorizontalTextPosition(JLabel.CENTER);
+		text.setHorizontalAlignment(JLabel.CENTER);
 		text.setFont(font);
 		add(text,BorderLayout.CENTER);
 		setBorder(BorderFactory.createLineBorder(Color.black));
