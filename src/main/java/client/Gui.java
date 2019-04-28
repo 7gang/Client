@@ -14,7 +14,7 @@ public class Gui extends JFrame {
 	Dbtable table = new Dbtable();//
 	Dbdisplay display = new Dbdisplay();
 	Dbinput inputfield = new Dbinput();
-	JPanel side = new MihaiPanel();//JPanels used to set up the layout 
+	JPanel side = new ButtonPanel();//JPanels used to set up the layout 
 	JPanel side2 = new JPanel();
 	JPanel top = new JPanel();
 	JPanel bottom = table;
@@ -65,11 +65,11 @@ public class Gui extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);//Setting the default close operation so the program shuts down when the window is closed
 		setVisible(true);//Setting the frame to be visible
 		
-		table.list.addListSelectionListener(new ListSelectionListener() {//Adding a selection listener to the Dbtable list
+		Dbtable.list.addListSelectionListener(new ListSelectionListener() {//Adding a selection listener to the Dbtable list
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {//Method for the listener that is called whenever the selection in the list is changed
 				switch(block) {//Switch case that is used stop code from being called when the list contents are changing 
-				case 0:	k = table.listModel.getElementAt(table.list.getSelectedIndex());//Retrieving text entry from the list
+				case 0:	k = Dbtable.listModel.getElementAt(Dbtable.list.getSelectedIndex());//Retrieving text entry from the list
 				break;
 				case 1: break;//doing noting to protect the code from errors
 				}
@@ -78,7 +78,7 @@ public class Gui extends JFrame {
 		});
 		display.text.setText(k);
 		//Action listeners for buttons in the JPanel MihaiPanel
-		MihaiPanel.b1.addActionListener(new ActionListener() 
+		ButtonPanel.b1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
@@ -87,7 +87,7 @@ public class Gui extends JFrame {
 			}
 		});
 		
-		MihaiPanel.b2.addActionListener(new ActionListener() 
+		ButtonPanel.b2.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
@@ -96,7 +96,7 @@ public class Gui extends JFrame {
 			}
 		});
 		
-		MihaiPanel.b3.addActionListener(new ActionListener() 
+		ButtonPanel.b3.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed (ActionEvent e) 
 			{
@@ -106,7 +106,7 @@ public class Gui extends JFrame {
 			}
 		});
 		
-		MihaiPanel.b4.addActionListener(new ActionListener() 
+		ButtonPanel.b4.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed (ActionEvent e) 
 			{

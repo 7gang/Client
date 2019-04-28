@@ -6,7 +6,7 @@ import javax.swing.*;
  * Class responsible for drawing the panel containing the 4 buttons of the interface.
  */
 
-public class MihaiPanel extends JPanel {
+public class ButtonPanel extends JPanel {
 	
 	// initialization of the 4 buttons
 	static JButton b1 = new JButton("Add");
@@ -21,7 +21,7 @@ public class MihaiPanel extends JPanel {
 	Font font = new Font("Helvetica", Font.PLAIN,20);
 
 	
-		MihaiPanel(){
+		ButtonPanel(){
 			// change the Java look and feel to the standard Windows 10 look and feel.
 			try {
 		            // Set System L&F
