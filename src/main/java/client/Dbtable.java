@@ -2,6 +2,7 @@ package client;
 
 import javax.swing.*;
 import java.awt.*;
+
 /**
  * Class for the container used to show a list of database entries
  */
@@ -25,37 +26,36 @@ public class Dbtable extends JPanel{
 		setBorder(BorderFactory.createLineBorder(Color.black));//Creating a border around the container
 	}
 
+	/**
+	 * Replace all Dbtable entries with the most recent dataset from the Server
+	 */
 	private void reformList() {
+		// clear the list model
 		listModel.clear();
-		for (String quote : Server.getQuotes()) {
+		// add the new entries one-by-one
+		for (String quote : Server.getQuotes())
 			listModel.addElement(quote);
-		}
 	}
 	
-	void addItem(String input) { // requires text field
-		Boolean success = Server.addQuote(input);
-		System.out.println("add request success: " + success);
-		if (!success) 
-			return; // display an error message
-		reformList();
+	void addItem(String quote) {
+		if (!Server.addQuote(quote)) 
+			System.out.println("Could not add quote \"" + quote + "\"!"); // display an error message if operation failed
+		else reformList(); // assume operation was successful through and update the table
 	}
 	
-	void editItem(String targetQuote, String newQuote) { // requires text field
-		Boolean success = Server.editQuote(targetQuote, newQuote);
-		if (!success)
-			return; // display an error message
-		reformList();
+	void editItem(String targetQuote, String newQuote) {
+		if (!Server.editQuote(targetQuote, newQuote))
+			System.out.println("Could not change quote \"" + targetQuote + "\" to \"" + newQuote + "\"!"); // display an error message if operation failed
+		else reformList(); // assume operation was successful and update the table
 	}
 	
-	void removeItem(String quote) { // not used
-		Boolean success = Server.deleteQuote(quote);
-		if (!success)
-			return; // display an error message
-		reformList();
+	void removeItem(String quote) {
+		if (!Server.deleteQuote(quote))
+			System.out.println("Could not delete quote \"" + quote + "\"!"); // display an error message if operation failed
+		else reformList(); // assume operation was successful and update the table
 	}
 	
 	void updateItems() {
-		System.out.println("update request");
 		reformList();
 	}
 	
