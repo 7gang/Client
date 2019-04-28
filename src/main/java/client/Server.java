@@ -31,7 +31,7 @@ class Server {
     }
 
     /**
-     * Attempts to add the specified quote String to the remote database
+     * Add the specified quote String to the remote database
      * @param quote the quote String to be added
      * @return a Boolean value depending on the success of the network request
      */
@@ -40,7 +40,7 @@ class Server {
     }
 
     /**
-     * Attempts to edit the specified quote String at the remote database, changing it to the new quote String
+     * Edit the specified quote String at the remote database, changing it to the new quote String
      * @param targetQuote the quote String to be edited
      * @param newQuote the quote String to replace the targetQuote
      * @return a Boolean value depending on the success of the network request
@@ -50,7 +50,7 @@ class Server {
     }
 
     /**
-     * Attempts to delete the specified quote String at the remote database
+     * Delete the specified quote String at the remote database
      * @param quote the quote String to be deleted
      * @return a Boolean value depending on the success of the network request
      */
@@ -59,7 +59,7 @@ class Server {
     }
 
     /**
-     * Attempts to carry out a new network request by establishing a connection, submitting given parameters and saving the response code and dataset
+     * Carry out a new network request by establishing a connection, submitting given parameters and saving the response code and dataset
      * @param parameters the variable amount of parameters to send over the network, where each entry is sent on it's own TCP line
      * @return a Boolean value depending on the success of the network request
      */
@@ -87,7 +87,7 @@ class Server {
     }
 
     /**
-     * Attempts to read and save a remote server response
+     * Read and save a remote server response
      * @return a Boolean value depending on the success of the network request
      */
     private static Boolean saveResponse() {
@@ -117,7 +117,7 @@ class Server {
     }
 
     /**
-     * Attempt to establish a TCP connection to the remote server
+     * Establish a TCP connection to the remote server
      * @return a Boolean value depending on the success of the network request
      */
     private static boolean connect() {
@@ -139,13 +139,13 @@ class Server {
     }
 
     /**
-     * Attempt to close the TCP socket connection, disrigarding any errors that might occur as a result
+     * Close the TCP socket connection, disrigarding any errors that might occur as a result
      */
     private static void closeSocket() {
         try {
             socket.close(); // attempting close
         } catch (IOException e) {
-            // in case of an error, simply inform the user with taking any further action
+            // in case of an error, simply inform the user without taking any further action
             System.out.println("Socket could not be gracefully closed!");
             e.printStackTrace();
         }
