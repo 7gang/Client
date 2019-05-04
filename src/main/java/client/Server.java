@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
  */
 class Server {
 
-    static List<String> data = new ArrayList<>(); // the list to hold the data from the most recent successful "get" request
+    private static List<String> data = new ArrayList<>(); // the list to hold the data from the most recent successful "get" request
     private static Socket socket = null; // the current socket connection
     private static PrintWriter out = null; // the current output stream
     private static BufferedReader in = null; // the current input stream
@@ -72,16 +72,16 @@ class Server {
             out.println(p); // send each parameter on it's own TCP output line
         try {
             socket.shutdownOutput(); // attempt to conclude the request
-            // request must have been successfully sent if no errors have occured by now
+            // request must have been successfully sent if no errors have occurred by now
             timer = System.currentTimeMillis(); // refresh the data cache timer
-            System.out.println("A server request accured with parameters: " + parameters);
+            System.out.println("A server request accrued with parameters: " + parameters);
             return saveResponse(); // if the response is saved correctly, the request is successful
 
         } catch (IOException e) {
             // report the error and close the socket in case the request could not be sent
             e.printStackTrace();
             closeSocket();
-            return false; // returning false indicating a failiure
+            return false; // returning false, indicating a failure
         }
 
     }
@@ -95,14 +95,14 @@ class Server {
         ArrayList<String> response = new ArrayList<>(); // ArrayList to hold each line of the server response
         String inputLine; // variable to hold a given line during iteration
         try {
-            // append the input line to the reponse ArrayList as long as there are lines to read
+            // append the input line to the repose ArrayList as long as there are lines to read
             while ((inputLine = in.readLine()) != null)
                 response.add(inputLine);
             // then close the socket
             socket.close();
 
         } catch (IOException e) {
-            // if anything goes wrong the error is propogated to the caller
+            // if anything goes wrong the error is propagated to the caller
             e.printStackTrace();
             return false;
         }
@@ -130,7 +130,7 @@ class Server {
             return socket.isConnected(); // return whether or not the socket connection was established successfully
 
         } catch (IOException e) {
-            // in case of an error, attempt to close the socket and propogate the error to the calling method
+            // in case of an error, attempt to close the socket and propagate the error to the calling method
             e.printStackTrace();
             closeSocket();
             return false;
@@ -139,7 +139,7 @@ class Server {
     }
 
     /**
-     * Close the TCP socket connection, disrigarding any errors that might occur as a result
+     * Close the TCP socket connection, disregarding any errors that might occur as a result
      */
     private static void closeSocket() {
         try {
